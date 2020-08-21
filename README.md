@@ -10,10 +10,10 @@ The module creates a React block that site visitors can use to record their choi
 
 
 
-![Block for rank choice voting](img/rankchoicevoting_screen_move.png)
+![Block for rank choice voting](img/vp_rcv.png)
 
 
-Demo: https://mychoices.vote/democratic-primary-2020
+Demo: https://mychoices.vote/democratic-vp-2020
 
 Then the choices are compiled, and the rank choice winner is revealed.
 

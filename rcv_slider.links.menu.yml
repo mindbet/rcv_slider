@@ -1,0 +1,14 @@
+
+# Score menu items definition
+entity.score.collection:
+  title: 'Score list'
+  route_name: entity.score.collection
+  description: 'List Score entities'
+  parent: system.admin_structure
+  weight: 100
+
+score.admin.structure.settings:
+  title: 'Score settings'
+  description: 'Configure Score entities'
+  route_name: score.settings
+  parent: system.admin_structure

@@ -1,0 +1,11 @@
+name: RCV Slider
+type: module
+description: 'React component for ranked choice voting'
+core: 8.x
+package: 'Custom'
+configure: rcv_slider.settings
+dependencies:
+  - drupal:node
+  - drupal:jsonapi
+  - drupal:serialization
+  - drupal:basic_auth

@@ -1,0 +1,108 @@
+
+{{ attach_library('rcv_slider/results') }}
+
+{{ explanation|raw }}
+
+
+
+{#  Load google charting library #}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+{% for key, value in valuestable %}
+
+
+
+  {% if key == 0 %}
+    <h4 class="alignmenthead" role="heading" aria-level="4">Initial preferences</h4>
+  {% else %}
+      <h4 class="alignmenthead" role="heading" aria-level="4">Realignment: {{ key }}</h4>
+  {% endif %}
+
+
+
+
+  <script type="text/javascript">
+
+
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
+
+    // material design syntax
+    // google.charts.load('current', {'packages':['bar']});
+
+    chartrange =  {{ winningthreshold }} * 1.15;
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawChart() {
+
+      // Create the data table.
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Candidate');
+      data.addColumn('number', 'Votes');
+      data.addColumn({type:'number', role:'annotation'});
+      data.addColumn({type:'string', role:'style'});
+
+
+      data.addRows([
+        {% for counter, rank in value %}
+        ['{{ rank.candidate }}', {{ rank.votecount }}, {{ rank.votecount }}, '#be0a8d'],
+        {% endfor %}
+      ]);
+
+
+      var paddingHeight = 0;
+      var rowHeight = data.getNumberOfRows() * 40;
+      var chartHeight = rowHeight + paddingHeight + 10;
+
+
+      // Set chart options
+      var options = {'title':'Candidate preferences',
+        width: '100%',
+        chartArea:{top:paddingHeight, left:125, height:rowHeight},
+        backgroundColor: '#f9f9f9',
+        'legend': { position: "none" },
+        // 'bars': 'horizontal', // Required for Material Bar Charts.
+        'height': chartHeight,
+        'hAxis': {
+          viewWindow: {
+            min: 0,
+            max: chartrange
+          },
+          ticks: [0, {{ winningthreshold }}] // display labels
+          // gridlines: { color: 'transparent' }
+        },
+      };
+
+
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div-{{ key }}'));
+      chart.draw(data, options);
+
+
+
+    }
+  </script>
+
+
+  <div id="chart_div-{{ key }}" role="region"></div>
+
+
+  {# Data table #}
+  <div class="screen-reader-only" role="region" tabindex="0">
+
+    <p role="region">Vote tallies</p>
+    <ul role="list" tabindex="0">
+      {% for counter, rank in value %}
+        <li role="listitem">{{ rank.candidate }} &nbsp; {{ rank.votecount }} </li>
+
+      {% endfor %}
+    </ul>
+  </div>
+{% endfor %}

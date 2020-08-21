@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_choices
+    - node.type.poll
+id: node.poll.field_choices
+field_name: field_choices
+entity_type: node
+bundle: poll
+label: Choices
+description: 'The list of candidates or choices to rank'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

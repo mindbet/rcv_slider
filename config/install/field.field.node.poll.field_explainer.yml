@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_explainer
+    - node.type.poll
+  module:
+    - text
+id: node.poll.field_explainer
+field_name: field_explainer
+entity_type: node
+bundle: poll
+label: Explainer
+description: 'Explanation of rank choice voting or results'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

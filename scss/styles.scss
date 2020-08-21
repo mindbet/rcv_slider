@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+
+
+  #block-votingtheme-rankedchoicewidget .content {
+    background-color: #ffffff;
+    padding: 20px;
+  }
+
+
+
+  .page-title,
+  #block-votingtheme-page-title h1 {
+    font-family: 'Roboto Slab', serif;
+    line-height: 1.4;
+    font-size: 1.3rem;
+    margin-bottom: .5rem;
+    margin-top: .25rem;
+      a {
+        text-decoration: none;
+        color: #333333;
+      }
+    }
+
+
+  #block-votingtheme-content h4 {
+    margin: 1rem  0 1rem 0;
+    font-size: 1rem;
+    line-height: 1.4;
+    font-family: 'Inter', sans-serif;
+  }
+
+
+  #block-votingtheme-content h4 a {
+    text-decoration: underline;
+  }
+
+
+  #block-votingtheme-content p,
+    .field--name-body p {
+      font-family: 'Inter', sans-serif;
+      margin: 0 0 1rem 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+
+  .alignmenthead {
+    margin: .5rem 0 .25rem 0;
+    font-family: 'Inter', sans-serif;
+    font-size: .9rem;
+    line-height: 1.4;
+  }
+
+
+  button {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    padding: 0.75em 1em;
+    border-radius: 0;
+    line-height: 1;
+    background-color: transparent;
+  }
+
+  button * {
+    pointer-events: none;
+  }

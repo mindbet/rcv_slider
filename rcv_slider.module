@@ -1,0 +1,76 @@
+<?php
+
+
+
+
+/**
+ * @file
+ * Contains rcv_slider.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Access\AccessResult;
+
+
+/**
+ * Implements hook_help().
+ */
+function rcv_slider_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the rcv_slider module.
+    case 'help.page.rcv_slider':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('React component for ranked choice voting') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+
+/**
+ * Implements hook_theme().
+ */
+function rcv_slider_theme($existing, $type, $theme, $path) {
+  return [
+    'rcv_slider_page' => [
+      'variables' => [
+        'text' => NULL,
+        'valuestable' => NULL,
+        'winningthreshold' => NULL,
+        'explanation' => NULL,
+      ],
+    ],
+  ];
+}
+
+
+
+// Needed to allow JSON API access to update custom entity type.
+/**
+ * Implements hook_jsonapi_entity_filter_access() for 'score'.
+ */
+function rcv_slider_jsonapi_entity_filter_access(\Drupal\Core\Entity\EntityTypeInterface $entity_type, \Drupal\Core\Session\AccountInterface $account) {
+  return ([
+    JSONAPI_FILTER_AMONG_ALL => AccessResult::allowed()
+  ]);
+}
+
+
+// Needed to allow JSON API access to update custom entity type.
+/**
+ * Implements hook_jsonapi_ENTITY_TYPE_filter_access() for 'score'.
+ */
+function rcv_slider_jsonapi_score_filter_access(\Drupal\Core\Entity\EntityTypeInterface $entity_type, \Drupal\Core\Session\AccountInterface $account) {
+  return ([
+    JSONAPI_FILTER_AMONG_ALL => AccessResult::allowed(),
+    JSONAPI_FILTER_AMONG_PUBLISHED => AccessResult::allowed(),
+    JSONAPI_FILTER_AMONG_OWN => AccessResult::allowed()
+  ]);
+}
+
+

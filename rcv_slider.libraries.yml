@@ -1,0 +1,19 @@
+rcv-slider:
+  version: 1.x
+  js:
+    js/react/rcv_slider_app/dist/app.bundle.js: { preprocess: false }
+  dependencies:
+    - core/drupalSettings
+  css:
+    theme:
+      css/styles.css: {}
+results:
+  version: 1.x
+  js:
+    js/showhide.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+  css:
+    theme:
+      css/styles.css: {}

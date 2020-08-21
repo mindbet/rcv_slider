@@ -1,0 +1,24 @@
+administer rank choice voting settings:
+  title: 'Rank Choice Voting settings'
+  description: 'A permission for rank choice voting settings.'
+  restrict access: TRUE
+add score entities:
+  title: 'Create new Score entities'
+
+administer score entities:
+  title: 'Administer Score entities'
+  description: 'Allow to access the administration form to configure Score entities.'
+  restrict access: true
+
+delete score entities:
+  title: 'Delete Score entities'
+
+edit score entities:
+  title: 'Edit Score entities'
+
+view published score entities:
+  title: 'View published Score entities'
+
+view unpublished score entities:
+  title: 'View unpublished Score entities'
+

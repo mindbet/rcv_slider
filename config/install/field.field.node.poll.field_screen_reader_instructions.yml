@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_screen_reader_instructions
+    - node.type.poll
+  module:
+    - text
+id: node.poll.field_screen_reader_instructions
+field_name: field_screen_reader_instructions
+entity_type: node
+bundle: poll
+label: 'Screen reader instructions'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: "<h4>How to Use the Rank Choice Voting Selector with a Screen Reader</h4>\r\n\r\n<p>Use your tab key to move through the choices in the poll.</p>\r\n\r\n<p>To move a candidate higher or lower on the list, tab to that candidate’s name, then press the space bar to select that candidate.</p>\r\n\r\n<p>Use the up and down arrow keys to move the candidate to the position you choose.</p>\r\n\r\n<p>Then, press the space bar again to deselect the candidate.</p>\r\n\r\n<p>Once you have deselected the candidate, you may use the tab and shift-tab key to move other candidates that you would like to rearrange.</p>\r\n\r\n<p>When you have the candidates arranged in the order you would like, tab to the bottom of the list to the ‘Record Vote’ button.</p>\r\n\r\n<p>Press the ‘Record Vote’ button to cast your vote.</p>\r\n"
+    format: basic_html
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,36 @@
+rcv_slider.settings:
+  path: '/admin/config/services/rcv_slider'
+  defaults:
+    _controller: '\Drupal\rcv_slider\Controller\RankChoiceCompile::content'
+    _title: 'Rank Choice Voting Results'
+  requirements:
+    _permission: 'administer rank choice voting settings'
+  options:
+    _admin_route: true
+
+rcv_slider.introduction:
+  path: '/node/{node}/intro'
+  defaults:
+    _entity_view: node.introduction
+    _title: 'Introduction'
+  requirements:
+    node: '\d+'
+    _permission: 'access content'
+
+rcv_slider.widget:
+  path: '/node/{node}/select'
+  defaults:
+    _entity_view: node.widget
+    _title: 'Candidates'
+  requirements:
+    node: '\d+'
+    _permission: 'access content'
+
+rcv_slider.compileresults:
+  path: '/node/{node}/results'
+  defaults:
+    _controller: '\Drupal\rcv_slider\Controller\RankChoiceCompile::content'
+    _title: 'Results'
+  requirements:
+    node: '\d+'
+    _permission: 'access content'

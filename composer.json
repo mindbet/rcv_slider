@@ -1,0 +1,8 @@
+{
+    "name": "rcv_slider",
+    "type": "drupal-module",
+    "description": "React component for ranked choice voting",
+    "keywords": [
+    ],
+    "minimum-stability": "dev",
+}
